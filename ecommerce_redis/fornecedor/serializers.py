@@ -9,6 +9,5 @@ class FornecedorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Fornecedor
-        fields = ['idfornecedor', 'nome', 'ativo']
-        read_only_fields = ['id']
+        fields = '__all__'
 
