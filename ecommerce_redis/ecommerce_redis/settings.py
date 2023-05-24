@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'fornecedor',
-    'setor'
+    'setor',
+    'tag',
+    'produto'
 ]
 
 MIDDLEWARE = [
@@ -79,11 +81,11 @@ WSGI_APPLICATION = 'ecommerce_redis.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'superon',
+        'NAME': 'superon_copy',
         'USER': 'common_user',
-        'PASSWORD': '3mARob4U',
-        'HOST': 'srv-dbaclone.solucoeslifeapps.com',
-        'PORT': 5432,
+        'PASSWORD': 'common_user1',
+        'HOST': 'localhost',
+        'PORT': 10000,
         'SCHEMA': 'public'
     }
 }

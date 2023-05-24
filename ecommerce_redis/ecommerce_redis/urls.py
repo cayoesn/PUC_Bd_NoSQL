@@ -19,4 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('fornecedor/', include('fornecedor.urls')),
     path('setor/', include('setor.urls')),
+    path('tag_pesquisa/', include('tag.urls')),
+    path('produto/', include('produto.urls')),
 ]

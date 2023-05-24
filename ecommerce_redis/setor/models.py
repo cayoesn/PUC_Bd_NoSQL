@@ -8,4 +8,4 @@ class Setor(models.Model):
     idfornecedor = models.UUIDField()
 
     class Meta:
-        db_table='setor'
+        db_table = 'setor'
