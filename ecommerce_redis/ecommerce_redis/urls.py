@@ -17,5 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('fornecedor/', include('fornecedor.urls')),  # new
+    path('fornecedor/', include('fornecedor.urls')),
+    path('setor/', include('setor.urls')),
 ]
