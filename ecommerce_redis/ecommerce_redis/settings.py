@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import environ
+
+env = environ.Env()
+environ.Env.read_env(env_file='../.env')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,12 +85,12 @@ WSGI_APPLICATION = 'ecommerce_redis.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'superon_copy',
-        'USER': 'common_user',
-        'PASSWORD': 'common_user1',
-        'HOST': 'localhost',
-        'PORT': 10000,
-        'SCHEMA': 'public'
+        'NAME': env('POSTGRE_DB'),
+        'USER': env('POSTGRE_USER'),
+        'PASSWORD': env('POSTGRE_PASSWORD'),
+        'HOST': env('POSTGRE_HOST'),
+        'PORT': env('POSTGRE_PORT'),
+        'SCHEMA': env('POSTGRE_SCHEMA')
     }
 }
 
@@ -137,7 +141,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
+        "LOCATION": f"redis://{env('REDIS_HOST')}:{env('REDIS_POST')}/1",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
